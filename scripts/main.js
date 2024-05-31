@@ -49,25 +49,29 @@ function fetchWhoisInfo(domain) {
 
 function displayResults(data) {
   const resultsContainer = document.getElementById('results');
-  
-  // 提取感兴趣的信息
-  const availability = data.available ? '可用' : '不可用';
-  const registrar = extractValue(data.info, 'Registrar');
-  const creationDate = extractValue(data.info, 'Creation Date');
-  const expiryDate = extractValue(data.info, 'Registry Expiry Date');
-  const domainStatus = extractValue(data.info, 'Domain Status');
 
-  // 格式化显示信息
-  const formattedInfo = `
-    <strong>可用性:</strong> ${availability}<br>
-    <strong>注册商:</strong> ${registrar}<br>
-    <strong>注册日期:</strong> ${creationDate}<br>
-    <strong>过期日期:</strong> ${expiryDate}<br>
-    <strong>域名状态:</strong> ${domainStatus}
-  `;
+  if (data.info) {
+    // 提取感兴趣的信息
+    const availability = data.available ? '可用' : '不可用';
+    const registrar = extractValue(data.info, 'Registrar');
+    const creationDate = extractValue(data.info, 'Creation Date');
+    const expiryDate = extractValue(data.info, 'Registry Expiry Date');
+    const domainStatus = extractValue(data.info, 'Domain Status');
 
-  // 显示格式化的信息
-  resultsContainer.innerHTML = formattedInfo;
+    // 格式化显示信息
+    const formattedInfo = `
+      <strong>可用性:</strong> ${availability}<br>
+      <strong>注册商:</strong> ${registrar}<br>
+      <strong>注册日期:</strong> ${creationDate}<br>
+      <strong>过期日期:</strong> ${expiryDate}<br>
+      <strong>域名状态:</strong> ${domainStatus}
+    `;
+
+    // 显示格式化的信息
+    resultsContainer.innerHTML = formattedInfo;
+  } else {
+    resultsContainer.innerHTML = "无法获取 WHOIS 信息";
+  }
 }
 
 // 从 WHOIS 数据中提取特定字段的值
