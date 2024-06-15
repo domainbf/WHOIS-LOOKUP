@@ -70,7 +70,7 @@ function displayResults(data) {
     // 显示格式化的信息
     resultsContainer.innerHTML = formattedInfo;
   } else {
-    resultsContainer.innerHTML = "无法获取 WHOIS 信息 仅支持COM/NET等常规域名用于展示用途";
+    resultsContainer.innerHTML = "无法获取WHOIS信息 仅支持常规域名查询";
   }
 }
 
