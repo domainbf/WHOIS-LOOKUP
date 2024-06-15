@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function validateInput(domain) {
   // 检查支持的顶级域名列表
-  const supportedSuffixes = ['com', 'net', 'org', 'me', 'xyz', 'info', 'io', 'co', 'ai', 'biz', 'bn', 'us', 'ke'];
+  const supportedSuffixes = ['com', 'net', 'org', 'me', 'xyz', 'info', 'io', 'co', 'ai', 'biz', 'ge', 'us', 'ke'];
   // 只抽取域名最后两个部分来确定 name 和 suffix
   const parts = domain.split('.').slice(-2);
   if (parts.length === 2 && supportedSuffixes.includes(parts[1])) {
