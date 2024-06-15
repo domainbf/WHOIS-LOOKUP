@@ -43,7 +43,7 @@ function fetchWhoisInfo(domain) {
         displayError(`发生错误: ${error.message}`);
       });
   } else {
-    displayError('请输入有效的域名。');
+    displayError('抱歉，目前仅支持com/net/org等少量域名查询。');
   }
 }
 
